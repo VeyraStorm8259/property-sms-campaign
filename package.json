@@ -1,0 +1,8 @@
+{
+  "name": "property-sms-campaign",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {"demo": "tsx scripts/demo.ts", "test": "tsx test/property_sms.test.ts", "typecheck": "tsc --noEmit"},
+  "dependencies": {"zod": "^3.23.8"},
+  "devDependencies": {"@types/node": "^22.0.0", "tsx": "^4.19.0", "typescript": "^5.6.0"}
+}
