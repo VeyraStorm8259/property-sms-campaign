@@ -12,7 +12,8 @@ export type Delivery = { tenant: string; message_id: string };
 function textFor(item: CampaignRequest["maintenance"][number] | CampaignRequest["documents"][number] | CampaignRequest["inspections"][number]): string {
   if ("request" in item) return `Maintenance request received: ${item.request}`;
   if ("document" in item) return `Please send your ${item.document} document.`;
-  return `Inspection reminder for ${item.date}.`;
+  if ("date" in item) return `Inspection reminder for ${item.date}.`;
+  throw new Error("Unsupported property campaign item");
 }
 
 export async function sendPropertyCampaign(input: unknown): Promise<Delivery[]> {
