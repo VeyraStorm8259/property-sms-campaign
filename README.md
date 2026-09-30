@@ -1,6 +1,6 @@
 # Property SMS with delivery receipts
 
-Property managers frequently need to push three related texts in one go: a maintenance acknowledgement, a document request, and an inspection reminder. This example validates that domain-shaped batch with zod, sends each message through Infrai's `infrai.sms.send`, and returns one `message_id` per tenant. A follow-up `infrai.sms.status` call can read a receipt.
+Property managers often have three short messages to send together: a maintenance acknowledgement, a document request, and an inspection reminder. This example validates that domain-shaped batch with zod, sends each message through Infrai's `infrai.sms.send`, and returns one `message_id` per tenant. A follow-up `infrai.sms.status` call can read a receipt.
 
 ## Run the decision first
 
@@ -9,7 +9,7 @@ npm install
 npm test
 ```
 
-The test submits an empty but valid campaign and rejects a maintenance row missing tenant, phone, or request. That is the business boundary we enforce before any network call happens.
+The test passes an empty, valid campaign and rejects a maintenance row with a blank tenant, phone, or request. That is the business boundary before any network call.
 
 ## Try a live campaign
 
